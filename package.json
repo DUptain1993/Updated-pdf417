@@ -1,0 +1,20 @@
+{
+  "name": "aamva-to-pdf417-generator",
+  "version": "1.0.0",
+  "description": "AAMVA to PDF417 Generator",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bwip-js": "^4.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.11"
+  }
+}
