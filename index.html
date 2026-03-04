@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AAMVA to PDF417 Generator 2026</title>
+  <title>AAMVA 2025 PDF417 Generator</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen">
@@ -14,7 +13,7 @@
         <svg class="w-8 h-8 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
         AAMVA PDF417 Generator
       </h1>
-      <p class="text-slate-500">Modernized to 2026 Standards</p>
+      <p class="text-slate-500">Updated to 2025 Standards (Annex D)</p>
     </header>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -23,7 +22,12 @@
         <h2 class="text-2xl font-bold mb-6 text-slate-800 border-b border-slate-100 pb-4">Data Fields</h2>
         <form id="aamva-form" class="space-y-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5" id="form-fields">
-            <!-- Dynamically generated fields will go here -->
+            <!-- Dynamically generated fields -->
+          </div>
+          <div class="pt-6 border-t border-slate-100">
+            <button type="button" id="gen-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition active:scale-95 text-xl uppercase tracking-wider">
+              GEN
+            </button>
           </div>
         </form>
       </section>
@@ -36,19 +40,19 @@
           <div class="bg-white p-4 rounded-xl shadow-inner border border-slate-100 mb-6 w-full flex justify-center overflow-x-auto min-h-[150px]">
             <canvas id="barcode-canvas" class="max-w-full"></canvas>
           </div>
-          <button id="download-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-xl shadow-sm transition duration-200 flex items-center justify-center gap-2">
+          <button id="download-btn" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-3 px-4 rounded-xl shadow-sm transition duration-200 flex items-center justify-center gap-2">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-            Download Barcode
+            Download PNG
           </button>
         </div>
 
         <!-- Raw AAMVA Text -->
         <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 sm:p-8">
-          <h2 class="text-xl font-bold mb-6 text-slate-800 border-b border-slate-100 pb-4 flex items-center justify-between">
+          <h2 class="text-xl font-bold mb-6 text-slate-800 border-b border-slate-100 pb-4">
             Raw AAMVA String
-            <span class="text-xs font-normal text-slate-400 bg-slate-100 px-2 py-1 rounded">Auto-syncs</span>
           </h2>
-          <textarea id="raw-aamva" rows="12" class="w-full font-mono text-sm p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-slate-50 text-slate-700 transition duration-200"></textarea>
+          <textarea id="raw-aamva" rows="10" readonly class="w-full font-mono text-xs p-4 border border-slate-200 rounded-xl bg-slate-50 text-slate-700 transition duration-200"></textarea>
+          <p class="text-[10px] text-slate-400 mt-2">Note: Special characters (\x1e, \r, \n) are present in the underlying data.</p>
         </div>
       </section>
     </div>
